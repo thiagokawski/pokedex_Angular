@@ -1,1 +1,107 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+img{
+    max-width: calc(100% - 20px);
+    max-height: calc(100% - 20px);
+    margin: 0 auto;
+}
+
+
+
+
+
+/*TIPOS*/
+.fire{
+    border: 1px solid rgb(250, 100, 0);
+    background-color: rgba(200, 50, 0, .4);
+}
+
+.water{
+    border: 1px solid rgb(0, 100, 250);
+    background-color: rgba(0, 50, 200, .4);
+}
+
+.grass{
+    border: 1px solid rgb(0, 250, 0);
+    background-color: rgba(0, 200, 0, .4);
+}
+
+.bug{
+    border: 1px solid rgb(0, 150, 0);
+    background-color: rgba(0, 100, 0, .4);
+}
+
+.ghost{
+    border: 1px solid rgb(100, 0, 250);
+    background-color: rgba(100, 0, 250, .4);
+}
+
+.poison{
+    border: 1px solid rgb(150, 0, 250);
+    background-color: rgba(150, 0, 250, .4);
+}
+
+.fairy{
+    border: 1px solid rgb(220, 0, 250);
+    background-color: rgba(220, 0, 250, .4);
+}
+
+.steel{
+    border: 1px solid rgb(200, 200, 200);
+    background-color: rgba(200, 200, 200, .4);
+}
+
+.ice{
+    border: 1px solid rgb(0, 200, 250);
+    background-color: rgba(0, 150, 250, .4);
+}
+
+.eletric{
+    border: 1px solid rgb(250, 250, 0);
+    background-color: rgba(250, 220, 0, .4);
+}
+
+.fight{
+    border: 1px solid rgb(250, 0, 0);
+    background-color: rgba(250, 0, 0, .4);
+}
+
+.ground{
+    border: 1px solid rgb(160, 120, 60);
+    background-color: rgba(160, 120, 60, .4);
+}
+
+.rock{
+    border: 1px solid rgb(160, 120, 100);
+    background-color: rgba(160, 120, 100, .4);
+}
+
+.flying{
+    border: 1px solid rgb(160, 230, 255);
+    background-color: rgba(160, 230, 255, .4);
+}
+
+.dragon{
+    border: 1px solid rgb(60, 20, 255);
+    background-color: rgba(60, 20, 255, .4);
+}
+
+.dark{
+    border: 1px solid rgb(70, 70, 70);
+    background-color: rgba(16, 14, 30, 0.7);
+}
+
+.normal{
+    border: 1px solid rgb(210, 200, 190);
+    background-color: rgba(210, 200, 190, 0.7);
+}
