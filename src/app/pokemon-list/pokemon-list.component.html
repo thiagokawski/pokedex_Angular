@@ -1,6 +1,11 @@
 <div class="list" *ngIf="pokemons.length > 0">
 
     <div class="card-list" *ngFor="let pokemon of pokemons.sort(ordenarPokemons)">
+        <div class="cad-list-id">
+            <span class="id">
+                {{ pokemon.id }}
+            </span>
+        </div>
         <img src="{{ pokemon.image }}" alt="Imagem {{ pokemon.nome }} ">
         <div class="card-list-info">
             <span class="name">{{ pokemon.nome }}</span>

@@ -32,12 +32,12 @@ export class PokemonListComponent {
 
         (data: any)=>{
           let pokemon: any = {};
-          pokemon.nome = data.name;
+          pokemon.nome = data.name.charAt(0).toUpperCase() + data.name.slice(1);
           pokemon.id = data.id;
           pokemon.image = data.sprites.other.dream_world.front_default;
           pokemon.tipo = [];
           data.types.forEach((type: any) => {
-            pokemon.tipo.push(type.type.name);
+            pokemon.tipo.push(type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1));
           });
           //console.log(data)
           this.pokemons.push(pokemon);

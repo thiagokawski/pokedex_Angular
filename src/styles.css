@@ -21,87 +21,87 @@ img{
 
 
 /*TIPOS*/
-.fire{
+.Fire{
     border: 1px solid rgb(250, 100, 0);
     background-color: rgba(200, 50, 0, .4);
 }
 
-.water{
+.Water{
     border: 1px solid rgb(0, 100, 250);
     background-color: rgba(0, 50, 200, .4);
 }
 
-.grass{
+.Grass{
     border: 1px solid rgb(0, 250, 0);
     background-color: rgba(0, 200, 0, .4);
 }
 
-.bug{
+.Bug{
     border: 1px solid rgb(0, 150, 0);
     background-color: rgba(0, 100, 0, .4);
 }
 
-.ghost{
+.Ghost{
     border: 1px solid rgb(100, 0, 250);
     background-color: rgba(100, 0, 250, .4);
 }
 
-.poison{
+.Poison{
     border: 1px solid rgb(150, 0, 250);
     background-color: rgba(150, 0, 250, .4);
 }
 
-.fairy{
+.Fairy{
     border: 1px solid rgb(220, 0, 250);
     background-color: rgba(220, 0, 250, .4);
 }
 
-.steel{
+.Steel{
     border: 1px solid rgb(200, 200, 200);
     background-color: rgba(200, 200, 200, .4);
 }
 
-.ice{
+.Ice{
     border: 1px solid rgb(0, 200, 250);
     background-color: rgba(0, 150, 250, .4);
 }
 
-.eletric{
+.Eletric{
     border: 1px solid rgb(250, 250, 0);
     background-color: rgba(250, 220, 0, .4);
 }
 
-.fight{
+.Fight{
     border: 1px solid rgb(250, 0, 0);
     background-color: rgba(250, 0, 0, .4);
 }
 
-.ground{
+.Ground{
     border: 1px solid rgb(160, 120, 60);
     background-color: rgba(160, 120, 60, .4);
 }
 
-.rock{
+.Rock{
     border: 1px solid rgb(160, 120, 100);
     background-color: rgba(160, 120, 100, .4);
 }
 
-.flying{
+.Flying{
     border: 1px solid rgb(160, 230, 255);
     background-color: rgba(160, 230, 255, .4);
 }
 
-.dragon{
+.Dragon{
     border: 1px solid rgb(60, 20, 255);
     background-color: rgba(60, 20, 255, .4);
 }
 
-.dark{
+.Dark{
     border: 1px solid rgb(70, 70, 70);
     background-color: rgba(16, 14, 30, 0.7);
 }
 
-.normal{
+.Normal{
     border: 1px solid rgb(210, 200, 190);
     background-color: rgba(210, 200, 190, 0.7);
 }
