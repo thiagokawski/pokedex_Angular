@@ -7,6 +7,8 @@ import { BuscaListaPokemonService } from '../shared/services/busca-lista-pokemon
   styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent {
+  next: boolean = true;
+  previous: boolean = false;
   pagina: number = 0;
   pokemons: Array<any> = [];
 
@@ -21,6 +23,16 @@ export class PokemonListComponent {
     this._buscaLista.buscarLista(this.pagina * 20).subscribe(
       (data: any) =>{
         pokeList = data.results;
+        if(data.previous){
+          this.previous = true;
+        }else{
+          this.previous = false;
+        }
+        if(data.next){
+          this.next = true;
+        }else{
+          this.next = false;
+        }
         this.getPokemons(pokeList);
       }
     )
@@ -52,5 +64,17 @@ export class PokemonListComponent {
 
   ordenarPokemons(a: any, b: any) {
     return a.id - b.id;
+  }
+
+  nextPag(){
+    this.pagina ++;
+    this.pokemons = [];
+    this.listarPokemons();
+  }
+
+  previousPag(){
+    this.pagina --;
+    this.pokemons = [];
+    this.listarPokemons();
   }
 }

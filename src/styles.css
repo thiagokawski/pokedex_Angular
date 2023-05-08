@@ -66,12 +66,12 @@ img{
     background-color: rgba(0, 150, 250, .4);
 }
 
-.Eletric{
+.Electric{
     border: 1px solid rgb(250, 250, 0);
     background-color: rgba(250, 220, 0, .4);
 }
 
-.Fight{
+.Fighting{
     border: 1px solid rgb(250, 0, 0);
     background-color: rgba(250, 0, 0, .4);
 }
@@ -104,4 +104,9 @@ img{
 .Normal{
     border: 1px solid rgb(210, 200, 190);
     background-color: rgba(210, 200, 190, 0.7);
+}
+
+.Psychic{
+    border: 1px solid rgb(210, 0, 200);
+    background-color: rgba(210, 0, 200, 0.7);
 }

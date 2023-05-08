@@ -16,3 +16,8 @@
     </div> 
 
 </div>
+
+<div class="footerPag">
+    <button *ngIf="previous" (click)="previousPag()"> Página Anterior</button>
+    <button *ngIf="next" (click)="nextPag()"> Próxima Página</button>
+</div>

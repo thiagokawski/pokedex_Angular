@@ -62,3 +62,26 @@
     margin: 0 5px;
     border-radius: 5px;
 }
+
+
+.footerPag{
+    display: flex;
+    align-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 80px;
+    background-color: rgba(0,0,0,.9);
+}
+
+.footerPag > button{
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgba(0, 120, 255);
+    cursor: pointer;
+}
+
+.footerPag > button:hover{
+    background-color: rgba(0, 60, 180);
+}

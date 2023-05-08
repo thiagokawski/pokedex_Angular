@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { PokemonListModule } from './pokemon-list/pokemon-list.module';
-import { TiposPokemonModule } from './shared/genericos/tipos-pokemon/tipos-pokemon.module';
-import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -18,8 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    PokemonListModule,
-    TiposPokemonModule
+    PokemonListModule
   ],
   providers: [
     
