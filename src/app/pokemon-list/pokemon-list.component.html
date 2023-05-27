@@ -1,3 +1,14 @@
+<div class="header">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="ID ou Nome do Pokemon" aria-label="Pesquisar" #inputPokemon>
+            <button class="btn btn-outline-primary" type="button" (click)="buscaParcial(inputPokemon.value)">Buscar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div class="list" *ngIf="pokemons.length > 0">
 
     <div class="card-list" *ngFor="let pokemon of pokemons.sort(ordenarPokemons)">
@@ -18,6 +29,6 @@
 </div>
 
 <div class="footerPag">
-    <button *ngIf="previous" (click)="previousPag()"> Página Anterior</button>
-    <button *ngIf="next" (click)="nextPag()"> Próxima Página</button>
+    <button *ngIf="previous" (click)="previousPag()" class="btn btn-primary"> Página Anterior</button>
+    <button *ngIf="next" (click)="nextPag()" class="btn btn-primary"> Próxima Página</button>
 </div>

@@ -14,6 +14,7 @@ export class BuscaListaPokemonService {
   }
 
   getPokemons(url: string){
+    console.log(url)
     return this.http.get(url);
   }
 
