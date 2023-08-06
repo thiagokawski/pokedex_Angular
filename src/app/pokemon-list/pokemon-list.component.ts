@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BuscaListaPokemonService } from '../shared/services/busca-lista-pokemon.service';
+import { faTree, faWater, faFire, faBug, faCircle, faMoon, faDragon, faFeather, faIceCream, faSquare, faGhost, faSkull, faHillRockslide, faBolt, faMountain, faMountainSun, faHatWizard, faHandFist, faWandMagicSparkles} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -11,8 +12,30 @@ export class PokemonListComponent {
   previous: boolean = false;
   pagina: number = 0;
   pokemons: Array<any> = [];
+  pokemonDestaque: any = null;
 
   constructor(private _buscaLista: BuscaListaPokemonService) { }
+
+  icons: { [key: string]: any } = {
+    'Grass': faTree,
+    'Fire' : faFire,
+    'Water': faWater,
+    'Bug': faBug,
+    'Ghost': faGhost,
+    'Poison': faSkull,
+    'Fairy': faWandMagicSparkles,
+    'Steel': faSquare,
+    'Ice': faIceCream,
+    'Electric': faBolt,
+    'Fighting': faHandFist,
+    'Ground': faMountainSun,
+    'Rock': faHillRockslide,
+    'Flying': faFeather,
+    'Dragon': faDragon,
+    'Dark': faMoon,
+    'Normal': faCircle,
+    'Psychic': faHatWizard
+  }
 
   ngOnInit() {
     this.listarPokemons();
@@ -89,6 +112,9 @@ export class PokemonListComponent {
     let pokemon: any = {};
     pokemon.nome = pk.name.charAt(0).toUpperCase() + pk.name.slice(1);
     pokemon.id = pk.id;
+    pokemon.height = pk.height;
+    pokemon.weight = pk.weight;
+    pokemon.stats = pk.stats;
     pokemon.image = pk.sprites.other.dream_world.front_default;
     pokemon.tipo = [];
     pk.types.forEach((type: any) => {
@@ -97,8 +123,16 @@ export class PokemonListComponent {
     this.pokemons.push(pokemon);
   }
 
-  //
+  
   //Utilitarios
+  viewCard(pokemon: any){
+    this.pokemonDestaque = pokemon;
+  }
+
+  closeCard(){
+    this.pokemonDestaque = null;
+  }
+
   ordenarPokemons(a: any, b: any) {
     return a.id - b.id;
   }

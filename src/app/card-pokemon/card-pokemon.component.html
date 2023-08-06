@@ -1,0 +1,33 @@
+<div class="card-destaque ft-rbt" style="overflow:auto;">
+    <div class="pokemon-art bg bg-{{pokemon.tipo['0']}}">
+        <img class="img-pk" src="{{ pokemon.image }}">
+    </div>
+    <div class="p-4 d-flex justify-content-around">
+        <div class="descPokemon descText p-4 m-2">
+            <h2 class="descTitle ft-32px">{{pokemon.nome}}</h2>
+            <h4 class="descId ft-24px">ID: {{pokemon.id}}</h4>
+            <div class="d-flex">
+                <span class="tipo {{ tipo }} m-2 py-1" style="min-width: 100px !important;" *ngFor="let tipo of pokemon.tipo">
+                    <fa-icon [icon]="icons[tipo]"></fa-icon> {{ tipo }}
+                </span>
+            </div>
+            <div class="descInfos py-2 ft-18px">
+                <span>Altura: {{pokemon.height / 10}} M</span><br>
+                <span>Peso: {{ pokemon.weight / 10}} Kg</span>
+            </div>
+        </div>
+        <div class="descPokemon p-4 m-2">
+            <table class="table">
+                <thead class="descText">
+                    <h2  class="ft-32px">Status Base</h2>
+                </thead>
+                <tbody class="descText  ft-18px">
+                    <tr *ngFor="let stat of pokemon.stats">
+                        <td>{{ nameStats[stat.stat.name] }}</td>
+                        <td>{{ stat.base_stat }}</td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

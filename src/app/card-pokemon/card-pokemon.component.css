@@ -1,0 +1,135 @@
+.card-destaque{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.9);
+}
+
+.pokemon-art{
+    display: flex;
+    align-content: space-around;
+    justify-content: center;
+    text-align: center;
+    height: 300px;
+    width: 100%;
+}
+
+.img-pk{
+    max-width: 100%;
+    max-height: 100%;
+    padding: 20px;
+}
+
+/*LISTA DE BACKGROUNDS*/
+.bg{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-Grass{
+    background-position: bottom;
+    background-image: url(../../assets/backgrounds/grass.jpg);
+ }
+
+.bg-Fire{
+    background-position: top;
+    background-image: url(../../assets/backgrounds/fire.webp);
+}
+
+.bg-Water{
+    background-position: center;
+    background-image: url(../../assets/backgrounds/water.jpg);
+}
+
+.bg-Bug{
+    background-position: bottom;
+    background-image: url(../../assets/backgrounds/bug.jpg);
+}
+
+.bg-Ghost{
+    background-position: center;
+    background-image: url(../../assets/backgrounds/ghost.jpg);
+}
+
+.bg-Poison{
+    background-position: bottom;
+    background-image: url(https://swordshield.pokemon.com/assets/img/screenshots/10_7_livecamera_5.jpg);
+}
+
+.bg-Fairy{
+    background-position: center;
+    background-image: url(../../assets/backgrounds/fairy.jpg);
+}
+
+.bg-Steel{
+    background-position: bottom;
+    background-image: url(../../assets/backgrounds/steel.jpg);
+}
+
+.bg-Ice{
+    background-position: bottom;
+    background-image: url(../../assets/backgrounds/ice.jpg);
+}
+
+.bg-Electric{
+    background-position: bottom;
+    background-image: url(../../assets/backgrounds/eletric.webp);
+}
+
+.bg-Fighting{
+    background-position: center;
+    background-image: url(../../assets/backgrounds/fight.jpg);
+}
+
+.bg-Ground{
+    background-position: bottom;
+    background-image: url(https://assets.epuzzle.info/puzzle/072/189/original.jpg);
+}
+
+.bg-Rock{
+    background-position: bottom;
+    background-image: url(../../assets/backgrounds/rock.jpg);
+}
+
+.bg-Flying{
+    background-position: center;
+    background-image: url(../../assets/backgrounds/fly.avif);
+}
+
+.bg-Dragon{
+    background-position: bottom;
+    background-image: url(../../assets/backgrounds/dragon.avif);
+}
+
+.bg-Dark{
+    background-position: bottom;
+    background-image: url(../../assets/backgrounds/dark.jpg);
+}
+
+.bg-Normal{
+    background-position: center;
+    background-image: url(https://media-s3-us-east-1.ceros.com/hype-beast/images/2018/07/13/a9a51bc0b8d626db493ab5f9a971b043/background-hero.png?imageOpt=1&fit=bounds&width=2163);
+}
+
+.bg-Psychic{
+    background-position: center;
+    background-image: url(../../assets/backgrounds/psychic.webp);
+}
+
+
+/*Descição style*/
+.descPokemon{
+    background-color: rgba(100, 100, 100, 0.2);
+    width: 100%;
+}
+
+.descText{
+    color: white;
+}
+
+.tipo{
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100px;
+}

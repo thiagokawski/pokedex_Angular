@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { PokemonListModule } from './pokemon-list/pokemon-list.module';
 
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { PokemonListModule } from './pokemon-list/pokemon-list.module';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    PokemonListModule
+    PokemonListModule,
+    FontAwesomeModule
   ],
   providers: [
     
