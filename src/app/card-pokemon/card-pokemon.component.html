@@ -3,7 +3,7 @@
         <img class="img-pk" src="{{ pokemon.image }}">
     </div>
     <div class="p-4 d-flex justify-content-around">
-        <div class="descPokemon descText p-4 m-2">
+        <div class="descPokemon descText descBox p-4 m-2">
             <h2 class="descTitle ft-32px">{{pokemon.nome}}</h2>
             <h4 class="descId ft-24px">ID: {{pokemon.id}}</h4>
             <div class="d-flex">
@@ -12,22 +12,41 @@
                 </span>
             </div>
             <div class="descInfos py-2 ft-18px">
+                <h3>Físico</h3>
                 <span>Altura: {{pokemon.height / 10}} M</span><br>
                 <span>Peso: {{ pokemon.weight / 10}} Kg</span>
             </div>
+            <div class="descInfos py-2 ft-18px" *ngIf="infoAdicionais.gender_rate != -1">
+                <h3>Gênero</h3>
+                <span>
+                    <fa-icon [icon]="icons['male']" style="color: rgb(0, 110, 255);"></fa-icon> 
+                    Macho: {{ 100 - (infoAdicionais.gender_rate * 100 / 8) }}%
+                </span><br>
+                <span>
+                    <fa-icon [icon]="icons['female']" style="color: rgb(255, 90, 120);"></fa-icon> 
+                    Femea: {{ infoAdicionais.gender_rate * 100 / 8 }}%
+                </span>
+            </div>
+            <div class="descInfos py-2 ft-18px" *ngIf="infoAdicionais.gender_rate != 0">
+                <h3>Captura</h3>
+                <mat-progress-bar mode="determinate" [value]="(infoAdicionais.capture_rate / 255) * 100" max="100"></mat-progress-bar>
+                <span>{{ infoAdicionais.capture_rate * 100 / 255  | number: '1.2-2' }}%</span>
+            </div>
         </div>
-        <div class="descPokemon p-4 m-2">
-            <table class="table">
-                <thead class="descText">
-                    <h2  class="ft-32px">Status Base</h2>
-                </thead>
-                <tbody class="descText  ft-18px">
-                    <tr *ngFor="let stat of pokemon.stats">
-                        <td>{{ nameStats[stat.stat.name] }}</td>
-                        <td>{{ stat.base_stat }}</td>
-                    </tr>
-                </tbody>
-              </table>
+        <div class="descPokemon">
+            <div class="descBox p-4 m-2">
+                <table class="table">
+                    <thead class="descText">
+                        <h2  class="ft-32px">Status Base</h2>
+                    </thead>
+                    <tbody class="descText  ft-18px">
+                        <tr *ngFor="let stat of pokemon.stats">
+                            <td>{{ nameStats[stat.stat.name] }}</td>
+                            <td>{{ stat.base_stat }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

@@ -17,4 +17,9 @@ export class BuscaListaPokemonService {
     return this.http.get(url);
   }
 
+  getSpecies(id: number){
+    let url = 'https://pokeapi.co/api/v2/pokemon-species/'+id+'/';
+    return this.http.get(url);
+  }
+
 }

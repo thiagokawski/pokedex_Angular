@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { faTree, faWater, faFire, faBug, faCircle, faMoon, faDragon, faFeather, faIceCream, faSquare, faGhost, faSkull, faHillRockslide, faBolt, faMountain, faMountainSun, faHatWizard, faHandFist, faWandMagicSparkles} from '@fortawesome/free-solid-svg-icons';
+import { faTree, faWater, faFire, faBug, faCircle, faMoon, faDragon, faFeather, faIceCream, faSquare, faGhost, faSkull, faHillRockslide, faBolt, faMountain, faMountainSun, faHatWizard, faHandFist, faWandMagicSparkles, faVenus, faMars} from '@fortawesome/free-solid-svg-icons';
+import { BuscaListaPokemonService } from '../shared/services/busca-lista-pokemon.service';
 
 @Component({
   selector: 'app-card-pokemon',
@@ -26,7 +27,9 @@ export class CardPokemonComponent {
     'Dragon': faDragon,
     'Dark': faMoon,
     'Normal': faCircle,
-    'Psychic': faHatWizard
+    'Psychic': faHatWizard,
+    'female': faVenus,
+    'male': faMars
   }
 
   nameStats: { [key: string]: string } = {
@@ -39,9 +42,36 @@ export class CardPokemonComponent {
   }
 
   @Input() pokemon: any;
+
+  infoAdicionais = {
+    gender_rate: -1,
+    capture_rate: 0
+  }
+
+  constructor(private _buscaLista: BuscaListaPokemonService) { }
   
   ngOnInit() {
-    console.log(this.pokemon);
+    this.infoAdicionais = {
+      gender_rate: -1,
+      capture_rate: 0
+    };
+
+    this.getSpecies(this.pokemon.id);
+  }
+
+  getSpecies(id: number){
+    this._buscaLista.getSpecies(id).subscribe(
+        (data: any) =>{
+          this.infoAdicionais.gender_rate = data.gender_rate;
+          this.infoAdicionais.capture_rate = data.capture_rate;
+        },
+        error => {
+          console.log(error);
+        }
+    )
+  }
+
+  configProgressBar(valor: number){
+    
   }
 }
-
