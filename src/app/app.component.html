@@ -1,1 +1,26 @@
 <app-pokemon-list></app-pokemon-list>
+
+<div *ngIf="avisoInicial" class="avisoInicial">
+    <div class="card-size">
+        <div class="aviso">
+            <h1>AVISO! </h1>
+            <p>
+                Olá humano!!! Não sei como me encontrou, nem por que 🤔, mas já que chegou até este local, quero avisar-lhe algo...
+            </p>
+            <p>
+                A pokedéx que está prestes a ver, foi desenvolvida 100% com intuito de estudar desenvolvimento web. Dito isso, não espere nada espetácular,
+                é um dos meus primeiros projetos e não deve estar nada profissional.
+            </p>
+            <p>
+                Os dados pokémon listados nesta pokedéx, são buscados em tempo real diretamente do PokeAPI, uma api aberta que disponibiliza dados de diversos pokémons, caso queira
+                conhecer, pode clicar <a href="https://pokeapi.co">AQUI</a>
+            </p>
+            <p>
+                Dados os devidos avisos, pode clicar em continuar, ou fechar a janela no canto superior direito, e explorar a pokedéx!!!
+            </p>
+            <button class="btn btn-primary mb-4" (click)="avisoInicial = false">Continuar <fa-icon class="px-2" [icon]="icons['go']"></fa-icon> </button>
+        </div>
+        <button class="btn btn-danger bt-close" (click)="avisoInicial = false">X</button>
+    </div>
+</div>
+

@@ -1,39 +1,63 @@
 <div class="card-destaque ft-rbt" style="overflow:auto;">
     <div class="pokemon-art bg bg-{{pokemon.tipo['0']}}">
-        <img class="img-pk" src="{{ pokemon.image }}">
-    </div>
-    <div class="p-4 d-flex justify-content-around">
-        <div class="descPokemon descText descBox p-4 m-2">
-            <h2 class="descTitle ft-32px">{{pokemon.nome}}</h2>
-            <h4 class="descId ft-24px">ID: {{pokemon.id}}</h4>
-            <div class="d-flex">
-                <span class="tipo {{ tipo }} m-2 py-1" style="min-width: 100px !important;" *ngFor="let tipo of pokemon.tipo">
-                    <fa-icon [icon]="icons[tipo]"></fa-icon> {{ tipo }}
-                </span>
-            </div>
-            <div class="descInfos py-2 ft-18px">
-                <h3>Físico</h3>
-                <span>Altura: {{pokemon.height / 10}} M</span><br>
-                <span>Peso: {{ pokemon.weight / 10}} Kg</span>
-            </div>
-            <div class="descInfos py-2 ft-18px" *ngIf="infoAdicionais.gender_rate != -1">
-                <h3>Gênero</h3>
-                <span>
-                    <fa-icon [icon]="icons['male']" style="color: rgb(0, 110, 255);"></fa-icon> 
-                    Macho: {{ 100 - (infoAdicionais.gender_rate * 100 / 8) }}%
-                </span><br>
-                <span>
-                    <fa-icon [icon]="icons['female']" style="color: rgb(255, 90, 120);"></fa-icon> 
-                    Femea: {{ infoAdicionais.gender_rate * 100 / 8 }}%
-                </span>
-            </div>
-            <div class="descInfos py-2 ft-18px" *ngIf="infoAdicionais.gender_rate != 0">
-                <h3>Captura</h3>
-                <mat-progress-bar mode="determinate" [value]="(infoAdicionais.capture_rate / 255) * 100" max="100"></mat-progress-bar>
-                <span>{{ infoAdicionais.capture_rate * 100 / 255  | number: '1.2-2' }}%</span>
+        <div *ngIf="obtendoPokemonAtual" class="w-100 h-100 d-flex justify-content-center align-items-center">
+            <div style="background-color: rgba(0,0,0,.5); color: white;" class="w-100 py-4">
+                <div class="spinner-grow" style="margin-right: 1rem;" role="status"></div>
+                <div class="spinner-grow" style="margin-right: 1rem;" role="status"></div>
+                <div class="spinner-grow" role="status"></div><br>
+                <h2>Carregando dados</h2>
             </div>
         </div>
-        <div class="descPokemon">
+        <img *ngIf="!obtendoPokemonAtual" class="img-pk" src="{{ pokemon.image }}">
+    </div>
+    <div class="row pok_nav_container">
+        <div class="col-md-6 mb-2">
+            <button class="btn btn-secondary pok_nav" type="button" (click)="previousPokemon()">
+                <fa-icon class="mr-2" [icon]="icons['preview']"></fa-icon>
+                Pokemon Anterior
+            </button>
+        </div>
+        <div class="col-md-6 mb-2">
+            <button class="btn btn-secondary pok_nav" type="button" (click)="nextPokemon()">
+                Pokemon Seguinte
+                <fa-icon class="ml-2" [icon]="icons['next']"></fa-icon>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="descText descBox p-4 m-2">
+                <h2 class="descTitle ft-32px">{{pokemon.nome}}</h2>
+                <h4 class="descId ft-24px">ID: {{pokemon.id}}</h4>
+                <div class="d-flex">
+                    <span class="tipo {{ tipo }} m-2 py-1" style="min-width: 100px !important;" *ngFor="let tipo of pokemon.tipo">
+                        <fa-icon [icon]="icons[tipo]"></fa-icon> {{ tipo }}
+                    </span>
+                </div>
+                <div class="descInfos py-2 ft-18px">
+                    <h3>Físico</h3>
+                    <span>Altura: {{pokemon.height / 10}} M</span><br>
+                    <span>Peso: {{ pokemon.weight / 10}} Kg</span>
+                </div>
+                <div class="descInfos py-2 ft-18px" *ngIf="infoAdicionais.gender_rate != -1">
+                    <h3>Gênero</h3>
+                    <span>
+                        <fa-icon [icon]="icons['male']" style="color: rgb(0, 110, 255);"></fa-icon> 
+                        Macho: {{ 100 - (infoAdicionais.gender_rate * 100 / 8) }}%
+                    </span><br>
+                    <span>
+                        <fa-icon [icon]="icons['female']" style="color: rgb(255, 90, 120);"></fa-icon> 
+                        Femea: {{ infoAdicionais.gender_rate * 100 / 8 }}%
+                    </span>
+                </div>
+                <div class="descInfos py-2 ft-18px" *ngIf="infoAdicionais.gender_rate != 0">
+                    <h3>Captura</h3>
+                    <mat-progress-bar mode="determinate" [value]="(infoAdicionais.capture_rate / 255) * 100" max="100"></mat-progress-bar>
+                    <span>{{ infoAdicionais.capture_rate * 100 / 255  | number: '1.2-2' }}%</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
             <div class="descBox p-4 m-2">
                 <table class="table">
                     <thead class="descText">

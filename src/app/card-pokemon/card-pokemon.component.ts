@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { faTree, faWater, faFire, faBug, faCircle, faMoon, faDragon, faFeather, faIceCream, faSquare, faGhost, faSkull, faHillRockslide, faBolt, faMountain, faMountainSun, faHatWizard, faHandFist, faWandMagicSparkles, faVenus, faMars} from '@fortawesome/free-solid-svg-icons';
+import { faTree, faWater, faFire, faBug, faCircle, faMoon, faDragon, faFeather, faIceCream, faSquare, faGhost, faSkull, faHillRockslide, faBolt, faMountain, faMountainSun, faHatWizard, faHandFist, faWandMagicSparkles, faVenus, faMars, faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import { BuscaListaPokemonService } from '../shared/services/busca-lista-pokemon.service';
 
 @Component({
@@ -29,7 +29,9 @@ export class CardPokemonComponent {
     'Normal': faCircle,
     'Psychic': faHatWizard,
     'female': faVenus,
-    'male': faMars
+    'male': faMars,
+    'preview': faChevronLeft,
+    'next': faChevronRight,
   }
 
   nameStats: { [key: string]: string } = {
@@ -48,6 +50,9 @@ export class CardPokemonComponent {
     capture_rate: 0
   }
 
+  idPokemonAtual = 0;
+  obtendoPokemonAtual: boolean = false;
+
   constructor(private _buscaLista: BuscaListaPokemonService) { }
   
   ngOnInit() {
@@ -56,7 +61,9 @@ export class CardPokemonComponent {
       capture_rate: 0
     };
 
-    this.getSpecies(this.pokemon.id);
+    this.idPokemonAtual = this.pokemon.id
+
+    this.getSpecies(this.idPokemonAtual);
   }
 
   getSpecies(id: number){
@@ -71,7 +78,48 @@ export class CardPokemonComponent {
     )
   }
 
-  configProgressBar(valor: number){
-    
+  //mudar pokemon
+  nextPokemon(){
+    this.idPokemonAtual++;
+    this.getPokemon(this.idPokemonAtual)
+    this.getSpecies(this.idPokemonAtual)
   }
+  previousPokemon(){
+    this.idPokemonAtual--;
+    this.getPokemon(this.idPokemonAtual)
+    this.getSpecies(this.idPokemonAtual)
+  }
+
+  getPokemon(id: number){
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}/`
+    
+    this.obtendoPokemonAtual = true;
+
+    this._buscaLista.getPokemons(url).subscribe(
+      (data: any)=>{
+        this.preencherDadosPokemon(data)
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+
+  preencherDadosPokemon(pk: any){
+    let pokemon: any = {};
+    pokemon.nome = pk.name.charAt(0).toUpperCase() + pk.name.slice(1);
+    pokemon.id = pk.id;
+    pokemon.height = pk.height;
+    pokemon.weight = pk.weight;
+    pokemon.stats = pk.stats;
+    pokemon.image = pk.sprites.other.dream_world.front_default;
+    pokemon.tipo = [];
+    pk.types.forEach((type: any) => {
+      pokemon.tipo.push(type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1));
+    });
+
+    this.pokemon = pokemon;
+    this.obtendoPokemonAtual = false;
+  }
+
 }

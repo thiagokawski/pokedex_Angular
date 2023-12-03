@@ -13,9 +13,10 @@
     background-color: rgb(245, 245, 255);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(300px));
     padding-top: 80px;
     padding-bottom: 80px;
+    min-height: 100%;
 }
 
 .card-list{
@@ -137,4 +138,4 @@ app-card-pokemon{
     .bt-close {
       margin-left: -40px;
     }
-  }
+}

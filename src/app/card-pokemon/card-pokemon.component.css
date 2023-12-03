@@ -125,6 +125,7 @@
 .descBox{
     background-color: rgba(100, 100, 100, 0.2);
     border-radius: 10px;
+    min-width: 300px;
 }
 
 .descText{
@@ -138,3 +139,16 @@
     width: 100px;
 }
 
+.pok_nav_container>div>button{
+    font-size: 20px;
+}
+
+.pok_nav{
+    width: 100%;
+    height: 50px;
+}
+
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}

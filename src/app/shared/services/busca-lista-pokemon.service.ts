@@ -10,7 +10,7 @@ export class BuscaListaPokemonService {
   constructor(private http: HttpClient) { }
 
   buscarLista(pagina: number) {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${pagina}`);   
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon/?limit=30&offset=${pagina}`);   
   }
 
   getPokemons(url: string){

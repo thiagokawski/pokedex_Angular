@@ -1,0 +1,46 @@
+.avisoInicial{
+    position: fixed !important;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+}
+
+.card-size{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: flex-start;
+    height: 100%;
+    height: 100%;
+}
+
+.aviso{
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    color: white;
+    background-color: rgba(0,0,0,8);
+    text-align: center;
+    overflow-y: auto;
+}
+
+.aviso>h1{
+    padding: 2rem;
+}
+
+.aviso>p{
+    padding: 2rem;
+    font-size: 1.5rem;
+}
+
+.aviso>button{
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 840px) {
+    .bt-close {
+      margin-left: -40px;
+    }
+}

@@ -14,6 +14,8 @@ export class PokemonListComponent {
   pokemons: Array<any> = [];
   pokemonDestaque: any = null;
 
+  obtendoPokemons = false
+
   constructor(private _buscaLista: BuscaListaPokemonService) { }
 
   icons: { [key: string]: any } = {
@@ -44,7 +46,10 @@ export class PokemonListComponent {
   //faz a busca de pokemons por página
   listarPokemons(){
     let pokeList: any;
-    this._buscaLista.buscarLista(this.pagina * 20).subscribe(
+
+    this.obtendoPokemons = true;
+
+    this._buscaLista.buscarLista(this.pagina * 30).subscribe(
       (data: any) =>{
         pokeList = data.results;
         if(data.previous){
@@ -58,6 +63,10 @@ export class PokemonListComponent {
           this.next = false;
         }
         this.getPokemons(pokeList);
+        this.obtendoPokemons = false;
+      },
+      err => {
+        console.log(err);
       }
     )
   }
@@ -65,6 +74,9 @@ export class PokemonListComponent {
   //busca pelo usuario; todos, nome, ou ID
   buscaParcial(pokemonName: any) {
     let url: string;
+
+    this.obtendoPokemons = true;
+
     if (pokemonName != null && pokemonName != ""){
       if(!isNaN(pokemonName)){
         url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}/`;
@@ -72,7 +84,8 @@ export class PokemonListComponent {
         url = `https://pokeapi.co/api/v2/pokemon?limit=1000000`;
       }
     }else{
-      url = `https://pokeapi.co/api/v2/pokemon?limit=20`;
+      this.listarPokemons();
+      return;
     }
 
     this._buscaLista.getPokemons(url).subscribe(
@@ -84,6 +97,8 @@ export class PokemonListComponent {
           this.pokemons = []
           this.preencherDadosPokemon(data)
         }
+
+        this.obtendoPokemons = false;
       },
       error => {
         console.log(error)

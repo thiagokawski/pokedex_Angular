@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faForward } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pokedex';
+
+  avisoInicial = true;
+
+  icons: { [key: string]: any } = {
+    'go': faForward,
+  }
 }
